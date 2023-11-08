@@ -21,3 +21,14 @@
    ```bash
    poetry shell
    ```
+
+#### Run the code
+
+> **Warning**: You must be in the virtual environment to run the code.
+> That means you should have run `poetry shell` in the previous step 2.
+
+- Run the code
+    - Run the code with the following command.
+    ```bash
+    python3 ./.../main.py # replace the ... with the path to the file
+    ``` 
