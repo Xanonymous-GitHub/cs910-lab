@@ -1,14 +1,14 @@
+from collections.abc import Sequence
 from numbers import Real
-from typing import Sequence
 
-from numpy import polyfit
+from numpy import polyfit, ndarray, float64
 
 
-def calculate_linear_regression_parameters[T: Real](
-        x_series: Sequence[T],
-        y_series: Sequence[T],
-        /,
-) -> tuple[T, T]:
+def calculate_linear_regression_parameters(
+        *,
+        x_series: Sequence[Real] | ndarray[Real],
+        y_series: Sequence[Real] | ndarray[Real],
+) -> tuple[float64, float64]:
     """
     Calculate the linear regression parameters (slope and intercept) for the given data series.
     Args:
