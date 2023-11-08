@@ -12,6 +12,7 @@ packages = [
 python = ">=3.12 <3.13"
 ucimlrepo = "^0.0.3"
 pandas = "^2.1.2"
+matplotlib = "^3.8.1"
 
 
 [build-system]
