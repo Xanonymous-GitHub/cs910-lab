@@ -2,8 +2,10 @@ from data.uci import retrieve_uci_data
 from equations import calculate_linear_regression_parameters
 from model.uciml import UciMLRepo
 from plot import plot_points, plot_line, show_plot
+from utils import skip
 
 
+@skip
 def run_problem1(*, dataset: UciMLRepo) -> None:
     data = dataset.data.features
     length = data['Length'].to_numpy()
