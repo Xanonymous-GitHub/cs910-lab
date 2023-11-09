@@ -31,7 +31,7 @@ def plot_line(
     axes = plt.gca()
     x_vals = array(axes.get_xlim())
     y_vals = intercept + slope * x_vals
-    label = f'y = {slope:.2f}x + {intercept:.2f}' if show_equation else None
+    label = f'y = {slope:.4f}x {'+' if intercept > 0 else '-'} {abs(intercept):.4f}' if show_equation else None
     plt.plot(x_vals, y_vals, '--', markersize=line_size, label=label)
 
 
@@ -43,6 +43,9 @@ def show_plot(*, title: str, should_show_grid: bool = False) -> None:
 
     # enable grid
     plt.grid(should_show_grid)
+
+    # show legend
+    plt.legend(loc='best')
 
     # show plot
     plt.show()
