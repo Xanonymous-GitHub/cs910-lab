@@ -2,6 +2,7 @@ from data.uci import retrieve_uci_data
 from equations import calculate_linear_regression_parameters
 from model.uciml import UciMLRepo
 from plot import plot_points, plot_line, show_plot
+from plot.stats import create_regression_stat_model
 
 
 def run_problem1(*, dataset: UciMLRepo) -> None:
@@ -9,6 +10,9 @@ def run_problem1(*, dataset: UciMLRepo) -> None:
     length = data['Length'].to_numpy()
     diameter = data['Diameter'].to_numpy()
     m, b = calculate_linear_regression_parameters(x_series=length, y_series=diameter)
+
+    model = create_regression_stat_model(data, 'Diameter', 'Length')
+    print(model.summary(slim=True))
 
     plot_points(
         x_series=length,
