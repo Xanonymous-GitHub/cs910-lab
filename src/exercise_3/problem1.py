@@ -11,7 +11,7 @@ def run_problem1(*, dataset: UciMLRepo) -> None:
     diameter = data['Diameter'].to_numpy()
     m, b = calculate_linear_regression_parameters(x_series=length, y_series=diameter)
 
-    model = create_regression_stat_model(data, 'Diameter', 'Length')
+    model = create_regression_stat_model(data, 'Diameter ~ Length')
     print(model.summary(slim=True))
 
     plot_points(
