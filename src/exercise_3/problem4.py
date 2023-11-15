@@ -12,29 +12,33 @@ def run_problem4(*, dataset: UciMLRepo) -> None:
     data['Sex'] = np.where(data['Sex'] == 'I', 1, 0)
     print(data['Sex'].value_counts())
 
-    model_a = create_logistic_stat_model(
+    model_a, accuracy_a = create_logistic_stat_model(
         data,
         'Sex ~ Length',
     )
     print(model_a.summary(title='logit(Sex) = a * Length + b'))
+    print(f'accuracy: {accuracy_a}')
 
-    model_b = create_logistic_stat_model(
+    model_b, accuracy_b = create_logistic_stat_model(
         data,
         'Sex ~ Whole_weight',
     )
     print(model_b.summary(title='logit(Sex) = a * Whole_weight + b'))
+    print(f'accuracy: {accuracy_b}')
 
-    model_c = create_logistic_stat_model(
+    model_c, accuracy_c = create_logistic_stat_model(
         data,
         'Sex ~ Rings',
     )
     print(model_c.summary(title='logit(Sex) = a * Rings + b'))
+    print(f'accuracy: {accuracy_c}')
 
-    model_d = create_logistic_stat_model(
+    model_d, accuracy_d = create_logistic_stat_model(
         data,
         'Sex ~ Length + Whole_weight + Rings',
     )
     print(model_d.summary(title='logit(Sex) = a * Length + b * Whole_weight + c * Rings + d'))
+    print(f'accuracy: {accuracy_d}')
 
 
 def run() -> None:
