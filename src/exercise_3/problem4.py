@@ -5,10 +5,8 @@ from utils.numeration import binary_quantified_from
 
 
 def run_problem4(*, dataset: UciMLRepo) -> None:
-    data = dataset.data.original
-
     # TODO: use .loc
-    data = binary_quantified_from(data, column='Sex', positive_when_equal_to='I')
+    data = binary_quantified_from(dataset.data.original, column='Sex', positive_when_equal_to='I')
     print(data['Sex'].value_counts())
 
     model_a, accuracy_a = create_logistic_stat_model(
