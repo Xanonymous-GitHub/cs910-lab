@@ -10,6 +10,7 @@ def run_problem4(*, dataset: UciMLRepo) -> None:
 
     # TODO: use .loc
     data['Sex'] = np.where(data['Sex'] == 'I', 1, 0)
+    print(data['Sex'].value_counts())
 
     model_a = create_logistic_stat_model(
         data,
