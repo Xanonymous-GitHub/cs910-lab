@@ -14,6 +14,7 @@ def quantified_from(source: DataFrame, /, *columns: str) -> DataFrame:
     :return: A new DataFrame with quantified values.
     """
     quantified = source.copy()
+    quantified.dropna(inplace=True)
     for column in columns:
         quantified[column] = quantified[column].astype('category', copy=True).cat.codes
     return quantified
@@ -34,6 +35,7 @@ def binary_quantified_from(source: DataFrame, /, *, column: str, positive_when_e
     :return: A new DataFrame with quantified values.
     """
     quantified = source.copy()
+    quantified.dropna(inplace=True)
     quantified[column] = (
         quantified[column]
         .apply(lambda value: 1 if value == positive_when_equal_to else 0)
