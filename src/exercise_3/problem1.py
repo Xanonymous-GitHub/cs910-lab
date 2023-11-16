@@ -7,12 +7,14 @@ from plot.stats import create_regression_stat_model
 
 def run_problem1(*, dataset: UciMLRepo) -> None:
     data = dataset.data.original
+    print(dataset.variables)
     length = data['Length'].to_numpy()
     diameter = data['Diameter'].to_numpy()
     m, b = calculate_linear_regression_parameters(x_series=length, y_series=diameter)
 
     model = create_regression_stat_model(data, 'Diameter ~ Length')
     print(model.summary(slim=True))
+    print(f'R squared: {model.rsquared}')
 
     plot_points(
         x_series=length,
