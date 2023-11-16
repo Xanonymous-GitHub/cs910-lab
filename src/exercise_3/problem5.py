@@ -51,6 +51,12 @@ def create_batches[T](items, batch_size) -> [[T]]:
 
 
 def run_problem5(*, dataset: UciMLRepo) -> None:
+    print(dataset.variables)
+
+    should_start_finding_best_equation = input('Do you want to start finding the best equation? (y/n): ') == 'y'
+    if not should_start_finding_best_equation:
+        return
+
     data = prepare_data(dataset=dataset)
     all_headers = dataset.data.headers.to_list()
     all_headers.remove('sex')
