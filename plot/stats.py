@@ -23,7 +23,7 @@ def create_logistic_stat_model(
     data.dropna(inplace=True)
     y, x = dmatrices(equation, data=data, return_type='dataframe')
     model = Logit(y, x)
-    result = model.fit()
+    result = model.fit(disp=False)
     predicted = model.predict(result.params)
 
     # noinspection PyTypeChecker
