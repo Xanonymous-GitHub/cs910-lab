@@ -5,7 +5,7 @@ from plot.stats import create_regression_stat_model
 
 
 def run_problem3(*, dataset: UciMLRepo) -> None:
-    data = dataset.data.features
+    data = dataset.data.original
     whole_weight = data['Whole_weight'].to_numpy()
     diameter = data['Diameter'].to_numpy()
 

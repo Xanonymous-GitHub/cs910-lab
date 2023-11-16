@@ -4,7 +4,7 @@ from plot.stats import create_regression_stat_model
 
 
 def run_problem2(*, dataset: UciMLRepo) -> None:
-    data = dataset.data.features
+    data = dataset.data.original
 
     model = create_regression_stat_model(
         data,

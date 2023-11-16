@@ -6,7 +6,7 @@ from plot.stats import create_regression_stat_model
 
 
 def run_problem1(*, dataset: UciMLRepo) -> None:
-    data = dataset.data.features
+    data = dataset.data.original
     length = data['Length'].to_numpy()
     diameter = data['Diameter'].to_numpy()
     m, b = calculate_linear_regression_parameters(x_series=length, y_series=diameter)
