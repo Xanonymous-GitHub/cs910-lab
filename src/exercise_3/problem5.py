@@ -50,14 +50,16 @@ def create_batches[T](items, batch_size) -> [[T]]:
     return [items[i:i + batch_size] for i in range(0, len(items), batch_size)]
 
 
-def run_problem5(*, dataset: UciMLRepo) -> None:
-    print(dataset.variables)
+def show_all_value_count_of(data: DataFrame) -> None:
+    for column in data.columns:
+        print(f'{column}:')
+        print(data[column].value_counts())
+        print()
 
-    should_start_finding_best_equation = input('Do you want to start finding the best equation? (y/n): ') == 'y'
-    if not should_start_finding_best_equation:
-        return
 
+def find_best_accuracy(*, dataset: UciMLRepo) -> None:
     data = prepare_data(dataset=dataset)
+
     all_headers = dataset.data.headers.to_list()
     all_headers.remove('sex')
 
@@ -79,6 +81,27 @@ def run_problem5(*, dataset: UciMLRepo) -> None:
     accuracy_with_patterns.sort(key=lambda item: item[0], reverse=True)
     print('Best accuracy: ')
     pprint(accuracy_with_patterns[0])
+
+
+def run_problem5(*, dataset: UciMLRepo) -> None:
+    print(dataset.variables)
+
+    data = prepare_data(dataset=dataset)
+    all_headers = dataset.data.headers.to_list()
+    all_headers.remove('sex')
+    model, accuracy = build_model(
+        data,
+        'sex',
+        *all_headers
+    )
+    print(model.summary())
+    print(f'accuracy: {accuracy}')
+
+    should_start_finding_best_equation = input('Do you want to start finding the best equation? (y/n): ') == 'y'
+    if not should_start_finding_best_equation:
+        return
+
+    find_best_accuracy(dataset=dataset)
 
 
 def run() -> None:
