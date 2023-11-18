@@ -17,7 +17,9 @@ def create_regression_stat_model(
     data.dropna(inplace=True)
     y, x = dmatrices(equation, data=data, return_type='dataframe')
     model = OLS(y, x)
-    return model.fit()
+    result = model.fit(disp=False)
+
+    return result
 
 
 def create_logistic_stat_model(
