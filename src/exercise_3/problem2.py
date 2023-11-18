@@ -8,9 +8,10 @@ def run_problem2(*, dataset: UciMLRepo) -> None:
 
     model = create_regression_stat_model(
         data,
-        'Diameter ~ Length + Whole_weight + Shucked_weight + Viscera_weight + Shell_weight',
+        'Whole_weight ~ Shucked_weight + Viscera_weight + Shell_weight',
     )
     print(model.summary(slim=True))
+    print(f'R: {model.rsquared ** 0.5}')
 
 
 def run() -> None:
