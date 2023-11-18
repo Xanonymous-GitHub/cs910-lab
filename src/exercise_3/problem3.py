@@ -43,12 +43,15 @@ def run_problem3(*, dataset: UciMLRepo) -> None:
 
     model_c = create_regression_stat_model(
         data,
-        'Whole_weight ~ I(Diameter**3)',
+        'Whole_weight ~ I(Diameter**3) -1',  # use `-1` to remove the constant
     )
     print(model_c.summary(slim=True, title='weight = a * diameter^3'))
     print(f'R: {model_c.rsquared ** 0.5}')
-    a, b = model_c.params
-    painter_c = np.poly1d([b, 0, 0, a])
+    a = model_c.params[0]
+    # since this model doesn't have a constant, we need to add it manually
+    # Note that this is a cubic function.
+    b = whole_weight.mean() - a * diameter.mean() ** 3
+    painter_c = np.poly1d([a, 0, 0, b])
     poly_line_c = np.linspace(diameter.min(), diameter.max(), len(diameter))
     plt.plot(poly_line_c, painter_c(poly_line_c), '--', markersize=5, label='weight = a * diameter^3')
 
