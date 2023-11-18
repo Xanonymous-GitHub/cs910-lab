@@ -105,8 +105,8 @@ def run_problem5(*, dataset: UciMLRepo) -> None:
 
 
 def run() -> None:
-    abalone = retrieve_uci_data(repo_name='adult')
-    run_problem5(dataset=abalone)
+    adult = retrieve_uci_data(repo_name='adult')
+    run_problem5(dataset=adult)
 
 
 if __name__ == '__main__':
