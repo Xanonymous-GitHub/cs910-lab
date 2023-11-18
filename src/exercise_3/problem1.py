@@ -14,7 +14,7 @@ def run_problem1(*, dataset: UciMLRepo) -> None:
 
     model = create_regression_stat_model(data, 'Diameter ~ Length')
     print(model.summary(slim=True))
-    print(f'R squared: {model.rsquared}')
+    print(f'R: {model.rsquared ** 0.5}')
 
     plot_points(
         x_series=length,
