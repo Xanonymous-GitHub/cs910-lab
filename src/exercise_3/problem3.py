@@ -25,6 +25,7 @@ def run_problem3(*, dataset: UciMLRepo) -> None:
         'Whole_weight ~ Diameter',
     )
     print(model_a.summary(slim=True, title='weight = a * diameter + b'))
+    print(f'R: {model_a.rsquared ** 0.5}')
     painter_a = np.poly1d(model_a.params[::-1])
     poly_line_a = np.linspace(diameter.min(), diameter.max(), len(diameter))
     plt.plot(poly_line_a, painter_a(poly_line_a), '--', markersize=5, label='weight = a * diameter + b')
@@ -34,6 +35,7 @@ def run_problem3(*, dataset: UciMLRepo) -> None:
         'Whole_weight ~ Diameter + I(Diameter**2)',
     )
     print(model_b.summary(slim=True, title='weight = a * diameter + b * diameter^2 + c'))
+    print(f'R: {model_b.rsquared ** 0.5}')
     painter_b = np.poly1d(model_b.params[::-1])
     poly_line_b = np.linspace(diameter.min(), diameter.max(), len(diameter))
     plt.plot(poly_line_b, painter_b(poly_line_b), '--', markersize=5,
@@ -44,6 +46,7 @@ def run_problem3(*, dataset: UciMLRepo) -> None:
         'Whole_weight ~ I(Diameter**3)',
     )
     print(model_c.summary(slim=True, title='weight = a * diameter^3'))
+    print(f'R: {model_c.rsquared ** 0.5}')
     a, b = model_c.params
     painter_c = np.poly1d([b, 0, 0, a])
     poly_line_c = np.linspace(diameter.min(), diameter.max(), len(diameter))
@@ -54,6 +57,7 @@ def run_problem3(*, dataset: UciMLRepo) -> None:
         'log (Whole_weight) ~ Diameter',  # Warning: there's a space between `log` and `(Whole_weight)`
     )
     print(model_d.summary(slim=True, title='log(weight) = a * diameter + b'))
+    print(f'R: {model_d.rsquared ** 0.5}')
     b, a = model_d.params
     poly_line_d = np.linspace(diameter.min(), diameter.max(), len(diameter))
     predicted_weight = np.exp(a * poly_line_d + b)
