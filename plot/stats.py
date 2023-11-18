@@ -26,14 +26,12 @@ def create_logistic_stat_model(
         data: DataFrame,
         equation: str,
 ):
-    data.dropna(inplace=True)
+    data.dropna(inplace=True, ignore_index=True)
     y, x = dmatrices(equation, data=data, return_type='dataframe')
     model = Logit(y, x)
     result = model.fit(disp=False)
     predicted = model.predict(result.params)
-
     # noinspection PyTypeChecker
     predict_class = where(predicted > 0.5, 1, 0)
-
     accuracy = accuracy_score(y, predict_class)
     return result, accuracy
