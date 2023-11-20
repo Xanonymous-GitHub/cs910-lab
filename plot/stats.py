@@ -1,3 +1,4 @@
+import warnings
 from numpy import where, log
 from pandas import DataFrame
 from patsy.highlevel import dmatrices
@@ -29,7 +30,11 @@ def create_logistic_stat_model(
     data.dropna(inplace=True, ignore_index=True)
     y, x = dmatrices(equation, data=data, return_type='dataframe')
     model = Logit(y, x)
-    result = model.fit(disp=False)
+
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore")
+        result = model.fit(disp=False, maxiter=60)
+
     predicted = model.predict(result.params)
     # noinspection PyTypeChecker
     predict_class = where(predicted > 0.5, 1, 0)
