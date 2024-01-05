@@ -1,0 +1,115 @@
+aurora-in-a-bottle:
+  type: conference
+  title: Aurora in a Bottle
+  date: 2014-06-09
+  url: https://doi.org/10.1109/TPS.2014.2326559
+  author:
+    - Mounir Laroussi
+    - Mehmet A. Akman
+
+grand-aurora-seen:
+  type: conference
+  title: The grand aurorae borealis seen in Colombia in 1859
+  date: 2016-01-01
+  url: https://doi.org/10.1016/j.asr.2015.08.026
+  author:
+    - Freddy Moreno Cárdenas
+    - Sergio Cristancho Sánchez
+    - Santiago Vargas Domínguez
+
+dynamos:
+  type: article
+  title: Dynamos in planets, stars and galaxies
+  date: 2002-06-01
+  url: https://doi.org/10.1046/j.1468-4004.2002.43309.x
+  author:
+    - Nigel Weiss
+
+solar-magnetic-field:
+  type: article
+  title: Solar Magnetic Fields
+  date: 1965-09-17
+  url: https://doi.org/10.1126/science.149.3690.1331
+  author:
+    - V. Bumba
+    - Robert Howard
+
+solar-votices:
+  type: article
+  title: Solar Vortices and Magnetic Fields
+  date: 1908-10-08
+  url: https://doi.org/10.1038/078569d0
+  author:
+    - E. PERCIVAL LEWIS
+
+small-solar-magnetic-fields:
+  type: article
+  title: Small-scale solar magnetic fields
+  date: 1979-11-08
+  url: https://doi.org/10.1038/282133a0
+  author:
+    - Lawrence E. Cram
+
+solar-luminosity:
+  type: article
+  title: Magnetic fields, convection and solar luminosity variability
+  date: 1982-02-05
+  url: https://doi.org/10.1038/297208a0
+  author:
+    - W. C. Livingston
+
+fusion-laser:
+  type: article
+  title: NASA's New Shortcut to Fusion Power - Lattice Confinement Fusion Eliminates Massive Magnets and Powerful Lasers
+  date: 2022-03-08
+  url: https://doi.org/10.1109/MSPEC.2022.9729961
+  author:
+    - Bayarbadrakh Baramsai
+    - Theresa Benyo
+    - Lawrence Forsley
+    - Bruce Steinetz
+
+mass-inertia:
+  type: conference
+  title: Star Mass Inertia Dictates the Speed of Light
+  date: 2022-01
+  url: https://doi.org/10.4236/jhepgc.2022.81014
+  author:
+    - Weihong Qian
+
+double-oval-uv:
+  type: article
+  title: The double oval UV auroral distribution. Implications for the mapping of auroral arcs
+  date: 1995-08
+  url: http://dx.doi.org/10.1029/95JA00326
+  author:
+    - R. D. Elphinstone
+    - J. S. Murphree
+    - Deborah Hearn
+    - L. L. Cogger
+
+high-latitude-magnetic-field:
+  type: article
+  title: High-latitude magnetic fields and their time derivatives - interhemispheric similarities
+  date: 2013-02-19
+  url: https://doi.org/10.5047/eps.2012.05.014
+  author:
+    - Ari Viljanen
+    - Eija Tanskanen
+
+space-weather:
+  type: article
+  title: Towards a scientific understanding of the risk from extreme space weather
+  date: 2011-06-15
+  url: https://doi.org/10.1016/j.asr.2010.02.007
+  author:
+    - M.A. Hapgood
+
+darkness-and-light:
+  type: article
+  title: Aurora Borealis - Choreographies of darkness and light
+  date: 2017-03
+  url: https://doi.org/10.1016/j.annals.2017.02.001
+  author:
+    - Gunnar Thór Jóhannesson
+    - Katrín Anna Lund
