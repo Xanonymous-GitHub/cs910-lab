@@ -1,4 +1,4 @@
-from utils.file import ls, read_file_lines_from, write_file_lines_to
+from utils.file import ls, read_file_lines_from, write_file_lines_to, without_ext
 
 
 def start():
@@ -28,7 +28,7 @@ def start():
             cleaned_lines.append(cleaned_line)
 
         # Write the cleaned lines to the file
-        write_file_lines_to(f"{target_dir}/cleaned_{origin_file_name}", lines=cleaned_lines)
+        write_file_lines_to(f"{target_dir}/cleaned_{without_ext(origin_file_name)}.csv", lines=cleaned_lines)
 
 
 if __name__ == '__main__':
