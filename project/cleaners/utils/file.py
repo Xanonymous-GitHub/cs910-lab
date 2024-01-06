@@ -1,4 +1,4 @@
-from collections.abc import Generator
+from collections.abc import Generator, Sequence
 from os import path, listdir
 
 from .path import runtime_path_resolver
@@ -12,7 +12,7 @@ def read_file_lines_from(file_path: str, /) -> Generator[str, None, None]:
             yield line.strip()
 
 
-def write_file_lines_to(file_path: str, /, *, lines: tuple[str, ...]) -> None:
+def write_file_lines_to(file_path: str, /, *, lines: Sequence[str]) -> None:
     full_path = path.join(runtime_path_resolver.RUNTIME_DIR, file_path)
     buffer_size = 1024 * 1024
     with open(full_path, 'w', buffering=buffer_size) as file:
