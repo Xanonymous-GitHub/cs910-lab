@@ -23,3 +23,7 @@ def write_file_lines_to(file_path: str, /, *, lines: Sequence[str]) -> None:
 def ls(dir_path: str, /) -> tuple[str, ...]:
     full_path = path.join(runtime_path_resolver.RUNTIME_DIR, dir_path)
     return tuple(listdir(full_path))
+
+
+def without_ext(file_name: str, /) -> str:
+    return path.splitext(file_name)[0]
