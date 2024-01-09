@@ -3,6 +3,7 @@ from utils.file import ls, read_file_lines_from, write_file_lines_to, without_ex
 
 def start():
     target_dir = "../dataset/geomagnetic"
+    required_year_range = range(2000, 2003)
     origin_file_names = ls(target_dir)
 
     for origin_file_name in origin_file_names:
@@ -10,6 +11,8 @@ def start():
         cleaned_items: [[str]] = []
 
         for file_line in file_lines:
+            if file_line.startswith("#"):
+                continue
             raw_data_items = file_line.strip().split()
             cleaned_items.append(raw_data_items)
 
@@ -19,21 +22,16 @@ def start():
             year = int(items[0])
 
             if year != current_year:
-                write_file_lines_to(
-                    f"{target_dir}/cleaned_{current_year}_"
-                    f"{without_ext(origin_file_name)}.csv",
-                    lines=current_year_lines
-                )
+                if current_year in required_year_range:
+                    write_file_lines_to(
+                        f"{target_dir}/cleaned_{current_year}_"
+                        f"{without_ext(origin_file_name)}.csv",
+                        lines=current_year_lines
+                    )
                 current_year_lines.clear()
                 current_year = year
 
             current_year_lines.append(','.join(items))
-
-        write_file_lines_to(
-            f"{target_dir}/cleaned_{current_year}_"
-            f"{without_ext(origin_file_name)}.csv",
-            lines=current_year_lines
-        )
 
 
 if __name__ == '__main__':
